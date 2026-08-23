@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hasil Analisis | SIRARENA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="navbar-container">
+
+        <a href="index.html" class="logo">
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    SIARENA
+                </strong>
+
+                <span>
+                    Smart Waste Decision System
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="nav-menu">
+
+            <a href="index.html" class="nav-link">
+                Beranda
+            </a>
+
+            <a href="analysis.html" class="nav-link">
+                Analisis
+            </a>
+
+            <a href="result.html" class="nav-link active">
+                Hasil
+            </a>
+
+            <a href="evaluation.html" class="nav-link">
+                Evaluasi
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="page">
+
+
+    <!-- HEADER -->
+
+    <section class="page-title">
+
+        <span class="section-label">
+            SIARENA / ANALYSIS RESULT
+        </span>
+
+        <h1>
+            Hasil Analisis
+            <span style="color:var(--blue)">
+                Pengolahan Limbah
+            </span>
+        </h1>
+
+        <p>
+            Rekomendasi dihasilkan menggunakan
+            pendekatan Multi-Criteria Decision Analysis
+            berdasarkan data yang dimasukkan.
+        </p>
+
+    </section>
+
+
+
+    <!-- LOADING -->
+
+    <div id="loading"
+         class="panel"
+         style="text-align:center;">
+
+        <div class="loader"></div>
+
+        <p>
+            Memproses hasil analisis...
+        </p>
+
+    </div>
+
+
+
+    <!-- RESULT -->
+
+    <div id="result"
+         style="display:none;">
+
+
+        <!-- RECOMMENDATION -->
+
+        <section class="panel"
+                 style="
+                    border-top:5px solid var(--blue);
+                    background:linear-gradient(
+                        135deg,
+                        #ffffff,
+                        #f5f9ff
+                    );
+                 ">
+
+            <span class="section-label">
+                REKOMENDASI UTAMA
+            </span>
+
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                gap:25px;
+                flex-wrap:wrap;
+            ">
+
+                <div>
+
+                    <h2 id="winnerName"
+                        style="
+                            font-size:32px;
+                            margin:8px 0;
+                        ">
+                        -
+                    </h2>
+
+                    <p id="winnerDescription"
+                       class="muted">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div style="
+                    min-width:150px;
+                    padding:20px;
+                    border-radius:16px;
+                    background:var(--yellow-light);
+                    text-align:center;
+                ">
+
+                    <span style="
+                        display:block;
+                        font-size:10px;
+                        font-weight:700;
+                    ">
+                        FINAL SCORE
+                    </span>
+
+                    <strong id="winnerScore"
+                            style="
+                                display:block;
+                                font-size:42px;
+                                color:var(--blue);
+                            ">
+                        -
+                    </strong>
+
+                    <span>
+                        / 100
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div style="
+                display:grid;
+                grid-template-columns:
+                    repeat(auto-fit,minmax(150px,1fr));
+                gap:12px;
+                margin-top:25px;
+            ">
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="level">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Peringkat
+                    </span>
+
+                    <strong>
+                        #1
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span>
+                        Confidence
+                    </span>
+
+                    <strong id="confidence">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- REASONS -->
+
+        <section class="panel">
+
+            <span class="section-label">
+                DECISION INSIGHT
+            </span>
+
+            <h2>
+                Mengapa alternatif ini dipilih?
+            </h2>
+
+            <div id="reasons"
+                 class="grid-2">
+            </div>
+
+        </section>
+
+
+
+        <!-- RANKING -->
+
+        <section class="panel">
+
+            <span class="section-label">
+                MCDA RANKING
+            </span>
+
+            <h2>
+                Peringkat Alternatif
+            </h2>
+
+            <div id="ranking">
+            </div>
+
+        </section>
+
+
+
+        <!-- TABLE -->
+
+        <section class="panel">
+
+            <span class="section-label">
+                CRITERIA ANALYSIS
+            </span>
+
+            <h2>
+                Breakdown Kriteria
+            </h2>
+
+
+            <div style="
+                overflow-x:auto;
+            ">
+
+                <table class="criteria-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Alternatif
+                            </th>
+
+                            <th>
+                                Ekonomi
+                            </th>
+
+                            <th>
+                                Lingkungan
+                            </th>
+
+                            <th>
+                                Teknis
+                            </th>
+
+                            <th>
+                                Sirkularitas
+                            </th>
+
+                            <th>
+                                Sosial
+                            </th>
+
+                            <th>
+                                Final
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- IMPLEMENTATION -->
+
+        <section class="panel">
+
+            <span class="section-label">
+                IMPLEMENTATION
+            </span>
+
+            <h2>
+                Rekomendasi Implementasi
+            </h2>
+
+            <div id="implementation">
+            </div>
+
+        </section>
+
+
+
+        <!-- RISKS -->
+
+        <section class="panel">
+
+            <span class="section-label">
+                RISK ASSESSMENT
+            </span>
+
+            <h2>
+                Risiko yang Perlu Diperhatikan
+            </h2>
+
+            <div id="risks">
+            </div>
+
+        </section>
+
+
+
+        <!-- INPUT -->
+
+        <section class="panel">
+
+            <span class="section-label">
+                INPUT SUMMARY
+            </span>
+
+            <h2>
+                Data yang Dianalisis
+            </h2>
+
+            <div id="inputData"
+                 class="grid-2">
+            </div>
+
+        </section>
+
+
+
+        <!-- ACTION -->
+
+        <section class="panel">
+
+            <div class="form-actions">
+
+                <a href="analysis.html"
+                   class="button button-secondary">
+
+                    ← Analisis Ulang
+
+                </a>
+
+
+                <button
+                    onclick="window.print()"
+                    class="button button-primary">
+
+                    Cetak Hasil
+
+                </button>
+
+
+                <a href="evaluation.html"
+                   class="button button-primary">
+
+                    Lanjut Evaluasi →
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+
+<footer class="footer">
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 SIRASENTA
+        </span>
+
+        <span>
+            Evidence-Based Circular Waste Decision Support
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   DATABASE
+===================================================== */
+
+const alternatives = [
+
+    {
+        name:"Pakan Ternak Fermentasi",
+        category:"Biokonversi",
+        icon:"🐄",
+
+        economic:88,
+        environment:94,
+        technical:78,
+        circularity:97,
+        social:89,
+
+        process:[
+            "Pemilahan bahan baku",
+            "Pengurangan kadar air",
+            "Pencacahan",
+            "Fermentasi",
+            "Pengeringan",
+            "Validasi kualitas dan keamanan",
+            "Pemanfaatan sebagai pakan"
+        ],
+
+        risks:[
+            "Kandungan nutrisi harus divalidasi.",
+            "Bahan harus bebas dari kontaminan berbahaya.",
+            "Kadar air dan penyimpanan perlu dikontrol."
+        ]
+    },
+
+
+    {
+        name:"Kompos Organik",
+        category:"Daur Ulang Organik",
+        icon:"🌱",
+
+        economic:75,
+        environment:96,
+        technical:90,
+        circularity:92,
+        social:85,
+
+        process:[
+            "Pemilahan",
+            "Pencacahan",
+            "Pencampuran",
+            "Dekomposisi",
+            "Pematangan"
+        ],
+
+        risks:[
+            "Membutuhkan area pengomposan.",
+            "Kadar air perlu dikontrol."
+        ]
+    },
+
+
+    {
+        name:"Produksi Biogas",
+        category:"Energi Terbarukan",
+        icon:"⚡",
+
+        economic:82,
+        environment:95,
+        technical:70,
+        circularity:94,
+        social:80,
+
+        process:[
+            "Pengumpulan limbah",
+            "Pra-pengolahan",
+            "Pengisian digester",
+            "Anaerobic digestion",
+            "Pengumpulan biogas",
+            "Pemanfaatan energi"
+        ],
+
+        risks:[
+            "Investasi awal relatif tinggi.",
+            "Membutuhkan instalasi digester.",
+            "Parameter proses harus dikontrol."
+        ]
+    },
+
+
+    {
+        name:"Briket Biomassa",
+        category:"Energi Biomassa",
+        icon:"🔥",
+
+        economic:80,
+        environment:84,
+        technical:78,
+        circularity:87,
+        social:81,
+
+        process:[
+            "Pemilahan biomassa",
+            "Pengeringan",
+            "Penghalusan",
+            "Pencampuran",
+            "Pencetakan"
+        ],
+
+        risks:[
+            "Kadar air harus dikontrol.",
+            "Membutuhkan mesin pencetak."
+        ]
+    },
+
+
+    {
+        name:"Pupuk Organik Cair",
+        category:"Bioproses",
+        icon:"💧",
+
+        economic:83,
+        environment:90,
+        technical:84,
+        circularity:91,
+        social:87,
+
+        process:[
+            "Pemisahan bahan",
+            "Pencacahan",
+            "Pencampuran",
+            "Fermentasi",
+            "Penyaringan",
+            "Pengujian kualitas"
+        ],
+
+        risks:[
+            "Kualitas dipengaruhi kondisi fermentasi.",
+            "Pengendalian bau diperlukan."
+        ]
+    }
+
+];
+
+
+
+/* =====================================================
+   AMBIL DATA INPUT
+===================================================== */
+
+function getInput(){
+
+    let raw =
+        localStorage.getItem(
+            "sirasentaAnalysis"
+        );
+
+    if(!raw){
+
+        raw =
+            localStorage.getItem(
+                "sirasenta_input"
+            );
+
+    }
+
+    if(!raw){
+
+        raw =
+            localStorage.getItem(
+                "sirasenta_result"
+            );
+
+    }
+
+    if(!raw){
+
+        return null;
+
+    }
+
+    try{
+
+        const data =
+            JSON.parse(raw);
+
+        /*
+         * Jika yang ditemukan adalah
+         * object hasil lengkap
+         */
+
+        if(data.input){
+
+            return data.input;
+
+        }
+
+        return data;
+
+    }catch(error){
+
+        console.error(error);
+
+        return null;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   HITUNG MCDA
+===================================================== */
+
+function calculate(){
+
+    const input =
+        getInput();
+
+
+    if(!input){
+
+        return null;
+
+    }
+
+
+    const weights = {
+
+        economic:
+            Number(input.weightEconomic || 25),
+
+        environment:
+            Number(input.weightEnvironment || 25),
+
+        technical:
+            Number(input.weightTechnical || 20),
+
+        circularity:
+            Number(input.weightCircularity || 20),
+
+        social:
+            Number(input.weightSocial || 10)
+
+    };
+
+
+    const total =
+        weights.economic +
+        weights.environment +
+        weights.technical +
+        weights.circularity +
+        weights.social;
+
+
+    if(total !== 100){
+
+        console.warn(
+            "Bobot tidak berjumlah 100."
+        );
+
+    }
+
+
+    const ranking =
+        alternatives.map(
+            alt => {
+
+                const score = {
+
+                    economic:
+                        alt.economic,
+
+                    environment:
+                        alt.environment,
+
+                    technical:
+                        alt.technical,
+
+                    circularity:
+                        alt.circularity,
+
+                    social:
+                        alt.social
+
+                };
+
+
+                /* AMPAS TAHU */
+
+                if(
+                    input.wasteType ===
+                    "ampas-tahu"
+                ){
+
+                    if(
+                        alt.name ===
+                        "Pakan Ternak Fermentasi"
+                    ){
+
+                        score.economic += 5;
+                        score.circularity += 5;
+
+                    }
+
+                }
+
+
+                /* ORGANIK TINGGI */
+
+                if(
+                    input.organicContent ===
+                    "tinggi"
+                ){
+
+                    if(
+                        alt.name ===
+                        "Pakan Ternak Fermentasi"
+                    ){
+
+                        score.circularity += 3;
+
+                    }
+
+                    if(
+                        alt.name ===
+                        "Produksi Biogas"
+                    ){
+
+                        score.environment += 3;
+
+                    }
+
+                }
+
+
+                /* AIR TINGGI */
+
+                if(
+                    input.moisture ===
+                    "tinggi"
+                ){
+
+                    if(
+                        alt.name ===
+                        "Briket Biomassa"
+                    ){
+
+                        score.technical -= 10;
+
+                    }
+
+                    if(
+                        alt.name ===
+                        "Produksi Biogas"
+                    ){
+
+                        score.technical += 4;
+
+                    }
+
+                }
+
+
+                /* INVESTASI RENDAH */
+
+                if(
+                    input.budget ===
+                    "rendah"
+                ){
+
+                    if(
+                        alt.name ===
+                        "Produksi Biogas"
+                    ){
+
+                        score.economic -= 15;
+                        score.technical -= 10;
+
+                    }
+
+                }
+
+
+                /* TEKNOLOGI RENDAH */
+
+                if(
+                    input.technology ===
+                    "rendah"
+                ){
+
+                    if(
+                        alt.name ===
+                        "Produksi Biogas"
+                    ){
+
+                        score.technical -= 15;
+
+                    }
+
+                }
+
+
+                /* KONTAMINASI */
+
+                if(
+                    input.wasteCondition ===
+                    "terkontaminasi"
+                ){
+
+                    if(
+                        alt.name ===
+                        "Pakan Ternak Fermentasi"
+                    ){
+
+                        score.technical -= 20;
+
+                    }
+
+                }
+
+
+                Object.keys(score)
+                    .forEach(
+                        key => {
+
+                            score[key] =
+                                Math.max(
+                                    0,
+                                    Math.min(
+                                        100,
+                                        score[key]
+                                    )
+                                );
+
+                        }
+                    );
+
+
+                const finalScore =
+
+                    (
+
+                        score.economic *
+                        weights.economic
+
+                        +
+
+                        score.environment *
+                        weights.environment
+
+                        +
+
+                        score.technical *
+                        weights.technical
+
+                        +
+
+                        score.circularity *
+                        weights.circularity
+
+                        +
+
+                        score.social *
+                        weights.social
+
+                    ) / 100;
+
+
+                return {
+
+                    ...alt,
+
+                    adjusted:
+                        score,
+
+                    final:
+                        Number(
+                            finalScore.toFixed(1)
+                        )
+
+                };
+
+            }
+        );
+
+
+    ranking.sort(
+        (a,b) =>
+            b.final-a.final
+    );
+
+
+    ranking.forEach(
+        (item,index) => {
+
+            item.rank =
+                index + 1;
+
+        }
+    );
+
+
+    return {
+
+        input,
+
+        ranking
+
+    };
+
+}
+
+
+
+/* =====================================================
+   FORMAT LABEL
+===================================================== */
+
+function label(value){
+
+    const labels = {
+
+        "ampas-tahu":
+            "Ampas Tahu",
+
+        "air-limbah-tahu":
+            "Air Limbah Tahu",
+
+        "kulit-kedelai":
+            "Kulit Kedelai",
+
+        "campuran":
+            "Campuran",
+
+        "tahu":
+            "Produksi Tahu",
+
+        "tempe":
+            "Produksi Tempe",
+
+        "tahu-tempe":
+            "Tahu & Tempe",
+
+        "rendah":
+            "Rendah",
+
+        "sedang":
+            "Sedang",
+
+        "tinggi":
+            "Tinggi",
+
+        "kecil":
+            "Kecil",
+
+        "menengah":
+            "Menengah",
+
+        "besar":
+            "Besar"
+
+    };
+
+    return labels[value] || value || "-";
+
+}
+
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(){
+
+    const data =
+        calculate();
+
+
+    if(!data){
+
+        document.getElementById(
+            "loading"
+        ).innerHTML = `
+
+            <h2>
+                Data analisis belum tersedia
+            </h2>
+
+            <p>
+                Silakan kembali ke halaman
+                analisis dan masukkan data terlebih dahulu.
+            </p>
+
+            <br>
+
+            <a href="analysis.html"
+               class="button button-primary">
+
+                Mulai Analisis
+
+            </a>
+
+        `;
+
+        return;
+
+    }
+
+
+    const winner =
+        data.ranking[0];
+
+    const second =
+        data.ranking[1];
+
+
+    /* =====================================
+       CONFIDENCE
+    ===================================== */
+
+    let confidence =
+        75 +
+        (winner.final -
+        second.final);
+
+
+    confidence =
+        Math.max(
+            70,
+            Math.min(
+                98,
+                Math.round(confidence)
+            )
+        );
+
+
+    let level =
+        "Cukup Direkomendasikan";
+
+
+    if(
+        winner.final >= 85
+    ){
+
+        level =
+            "Sangat Direkomendasikan";
+
+    }
+
+    else if(
+        winner.final >= 75
+    ){
+
+        level =
+            "Direkomendasikan";
+
+    }
+
+
+    /* =====================================
+       WINNER
+    ===================================== */
+
+    document.getElementById(
+        "winnerName"
+    ).textContent =
+        winner.name;
+
+
+    document.getElementById(
+        "winnerScore"
+    ).textContent =
+        winner.final;
+
+
+    document.getElementById(
+        "winnerDescription"
+    ).textContent =
+
+        `${winner.name} memperoleh skor tertinggi berdasarkan pembobotan lima kriteria MCDA: ekonomi, lingkungan, teknis, sirkularitas, dan sosial.`;
+
+
+    document.getElementById(
+        "level"
+    ).textContent =
+        level;
+
+
+    document.getElementById(
+        "confidence"
+    ).textContent =
+        confidence + "%";
+
+
+
+    /* =====================================
+       REASONS
+    ===================================== */
+
+    const criteria = {
+
+        economic:
+            "Efisiensi Ekonomi",
+
+        environment:
+            "Dampak Lingkungan",
+
+        technical:
+            "Kelayakan Teknis",
+
+        circularity:
+            "Potensi Sirkularitas",
+
+        social:
+            "Dampak Sosial"
+
+    };
+
+
+    const reasons =
+        document.getElementById(
+            "reasons"
+        );
+
+
+    reasons.innerHTML = "";
+
+
+    Object.entries(
+        winner.adjusted
+    )
+    .sort(
+        (a,b) =>
+            b[1]-a[1]
+    )
+    .slice(0,3)
+    .forEach(
+        item => {
+
+            reasons.innerHTML += `
+
+                <div class="panel"
+                     style="
+                        margin:0;
+                        background:#f7faff;
+                     ">
+
+                    <span class="section-label">
+                        CRITERIA
+                    </span>
+
+                    <h3>
+                        ${criteria[item[0]]}
+                    </h3>
+
+                    <strong style="
+                        font-size:28px;
+                        color:var(--blue);
+                    ">
+                        ${item[1]}/100
+                    </strong>
+
+                    <p class="muted">
+                        Kinerja kriteria ini menjadi
+                        salah satu faktor pendukung
+                        posisi alternatif.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+
+    /* =====================================
+       RANKING
+    ===================================== */
+
+    const ranking =
+        document.getElementById(
+            "ranking"
+        );
+
+
+    ranking.innerHTML = "";
+
+
+    data.ranking.forEach(
+        item => {
+
+            ranking.innerHTML += `
+
+                <div style="
+                    display:grid;
+                    grid-template-columns:
+                    45px 45px 1fr 100px;
+                    align-items:center;
+                    gap:15px;
+                    padding:18px 0;
+                    border-bottom:1px solid #e8edf4;
+                ">
+
+                    <strong>
+                        #${item.rank}
+                    </strong>
+
+                    <span style="
+                        font-size:25px;
+                    ">
+                        ${item.icon}
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <span class="muted"
+                              style="
+                                display:block;
+                                font-size:11px;
+                              ">
+                            ${item.category}
+                        </span>
+
+                        <div style="
+                            margin-top:8px;
+                            height:7px;
+                            background:#e9eef5;
+                            border-radius:10px;
+                            overflow:hidden;
+                        ">
+
+                            <div style="
+                                width:${item.final}%;
+                                height:100%;
+                                background:
+                                linear-gradient(
+                                    90deg,
+                                    var(--blue),
+                                    var(--yellow)
+                                );
+                            "></div>
+
+                        </div>
+
+                    </div>
+
+                    <strong style="
+                        font-size:20px;
+                        color:var(--blue);
+                    ">
+                        ${item.final}
+                    </strong>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+
+    /* =====================================
+       TABLE
+    ===================================== */
+
+    const table =
+        document.getElementById(
+            "tableBody"
+        );
+
+
+    table.innerHTML = "";
+
+
+    data.ranking.forEach(
+        item => {
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>
+                        <strong>
+                            ${item.name}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${item.adjusted.economic}
+                    </td>
+
+                    <td>
+                        ${item.adjusted.environment}
+                    </td>
+
+                    <td>
+                        ${item.adjusted.technical}
+                    </td>
+
+                    <td>
+                        ${item.adjusted.circularity}
+                    </td>
+
+                    <td>
+                        ${item.adjusted.social}
+                    </td>
+
+                    <td>
+                        <strong>
+                            ${item.final}
+                        </strong>
+                    </td>
+
+                </tr>
+
+            `;
+
+        }
+    );
+
+
+
+    /* =====================================
+       IMPLEMENTATION
+    ===================================== */
+
+    const implementation =
+        document.getElementById(
+            "implementation"
+        );
+
+
+    implementation.innerHTML =
+
+        winner.process
+        .map(
+            (step,index) => `
+
+                <div style="
+                    display:flex;
+                    gap:15px;
+                    margin-bottom:18px;
+                ">
+
+                    <div style="
+                        width:35px;
+                        height:35px;
+                        flex-shrink:0;
+                        display:grid;
+                        place-items:center;
+                        border-radius:50%;
+                        background:var(--blue);
+                        color:white;
+                        font-weight:800;
+                    ">
+                        ${index+1}
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            ${step}
+                        </strong>
+
+                        <p class="muted">
+                            Tahap implementasi
+                            ${index+1}.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `
+        )
+        .join("");
+
+
+
+    /* =====================================
+       RISKS
+    ===================================== */
+
+    const risks =
+        document.getElementById(
+            "risks"
+        );
+
+
+    risks.innerHTML =
+
+        winner.risks
+        .map(
+            risk => `
+
+                <div style="
+                    padding:15px;
+                    margin-bottom:10px;
+                    border-radius:10px;
+                    background:#fff9df;
+                    border:1px solid #f3df8b;
+                ">
+
+                    ⚠️ ${risk}
+
+                </div>
+
+            `
+        )
+        .join("");
+
+
+
+    /* =====================================
+       INPUT SUMMARY
+    ===================================== */
+
+    const inputData =
+        document.getElementById(
+            "inputData"
+        );
+
+
+    const input =
+        data.input;
+
+
+    const summary = [
+
+        [
+            "Nama Usaha",
+            input.businessName
+        ],
+
+        [
+            "Jenis Usaha",
+            label(input.businessType)
+        ],
+
+        [
+            "Skala",
+            label(input.businessScale)
+        ],
+
+        [
+            "Jenis Limbah",
+            label(input.wasteType)
+        ],
+
+        [
+            "Volume Limbah",
+            `${input.wasteVolume || "-"} ${input.wasteUnit || ""}`
+        ],
+
+        [
+            "Kadar Air",
+            label(input.moisture)
+        ],
+
+        [
+            "Kandungan Organik",
+            label(input.organicContent)
+        ],
+
+        [
+            "Kondisi Limbah",
+            label(input.wasteCondition)
+        ],
+
+        [
+            "Lahan",
+            label(input.landAvailability)
+        ],
+
+        [
+            "Investasi",
+            label(input.budget)
+        ],
+
+        [
+            "Teknologi",
+            label(input.technology)
+        ]
+
+    ];
+
+
+    inputData.innerHTML = "";
+
+
+    summary.forEach(
+        item => {
+
+            inputData.innerHTML += `
+
+                <div class="summary-item">
+
+                    <span>
+                        ${item[0]}
+                    </span>
+
+                    <strong>
+                        ${item[1] || "-"}
+                    </strong>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+
+    /* =====================================
+       SIMPAN HASIL
+    ===================================== */
+
+    localStorage.setItem(
+
+        "sirasenta_result",
+
+        JSON.stringify({
+
+            input:data.input,
+
+            ranking:data.ranking,
+
+            recommendation:{
+
+                alternativeName:
+                    winner.name,
+
+                score:
+                    winner.final,
+
+                rank:1,
+
+                level:level
+
+            },
+
+            confidence:confidence
+
+        })
+
+    );
+
+
+    /* =====================================
+       SHOW
+    ===================================== */
+
+    document.getElementById(
+        "loading"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "result"
+    ).style.display =
+        "block";
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    render
+);
+
+</script>
+
+
+</body>
+
+</html>
