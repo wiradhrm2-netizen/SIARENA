@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evaluasi | SIARENA</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="navbar-container">
+
+            <a href="index.html" class="logo">
+
+                <div class="logo-icon">
+                    S
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        SIARENA
+                    </strong>
+
+                    <span>
+                        Sistem Integrasi dan Analisis Terpadu
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <nav class="nav-menu">
+
+                <a href="index.html" class="nav-link">
+                    Beranda
+                </a>
+
+                <a href="analysis.html" class="nav-link">
+                    Analisis
+                </a>
+
+                <a href="result.html" class="nav-link">
+                    Hasil
+                </a>
+
+                <a href="evaluation.html" class="nav-link active">
+                    Evaluasi
+                </a>
+
+            </nav>
+
+
+            <a href="analysis.html" class="nav-button">
+
+                Analisis Baru
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="page">
+
+        <!-- =================================================
+             PAGE TITLE
+        ================================================== -->
+
+        <section class="page-title">
+
+            <span class="section-label">
+                SIARENA • FINAL EVALUATION
+            </span>
+
+            <h1>
+                Evaluasi
+                <span style="color: var(--blue);">
+                    Rekomendasi
+                </span>
+            </h1>
+
+            <p>
+                Evaluasi kelayakan, kesiapan teknologi,
+                potensi ekonomi, dampak lingkungan,
+                dan sirkularitas dari alternatif pengolahan
+                limbah yang direkomendasikan.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECOMMENDATION
+        ================================================== -->
+
+        <section class="panel">
+
+            <span class="section-label">
+                REKOMENDASI SIARENA
+            </span>
+
+            <h2>
+                Alternatif Terpilih
+            </h2>
+
+            <div class="grid-2">
+
+                <div class="stat">
+
+                    <span>
+                        Rekomendasi
+                    </span>
+
+                    <b id="evaluationWinner">
+                        Memuat...
+                    </b>
+
+                    <small class="muted">
+                        Alternatif dengan skor MCDA tertinggi.
+                    </small>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Skor Analisis
+                    </span>
+
+                    <b>
+                        <span
+                            id="evaluationScore"
+                            style="
+                                display:inline;
+                                font-size:25px;
+                                color:var(--navy);
+                                letter-spacing:normal;
+                            "
+                        >
+                            -
+                        </span>
+                        /100
+                    </b>
+
+                    <small class="muted">
+                        Skor hasil analisis SIARENA.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EVALUATION FORM
+        ================================================== -->
+
+        <form id="evaluationForm">
+
+
+            <!-- =================================================
+                 01 — FEASIBILITY
+            ================================================== -->
+
+            <section class="panel">
+
+                <span class="section-label">
+                    01 • FEASIBILITY
+                </span>
+
+                <h2>
+                    Kelayakan Implementasi
+                </h2>
+
+                <p class="muted">
+                    Seberapa realistis alternatif tersebut
+                    diterapkan pada usaha?
+                </p>
+
+                <div class="form-group">
+
+                    <label for="feasibility">
+                        Tingkat kelayakan implementasi
+                    </label>
+
+                    <select
+                        id="feasibility"
+                        name="feasibility"
+                        required
+                    >
+
+                        <option value="">
+                            Pilih penilaian
+                        </option>
+
+                        <option value="1">
+                            1 — Sangat Tidak Layak
+                        </option>
+
+                        <option value="2">
+                            2 — Tidak Layak
+                        </option>
+
+                        <option value="3">
+                            3 — Cukup Layak
+                        </option>
+
+                        <option value="4">
+                            4 — Layak
+                        </option>
+
+                        <option value="5">
+                            5 — Sangat Layak
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 02 — TECHNOLOGY
+            ================================================== -->
+
+            <section class="panel">
+
+                <span class="section-label">
+                    02 • TECHNOLOGY
+                </span>
+
+                <h2>
+                    Kesiapan Teknologi
+                </h2>
+
+                <p class="muted">
+                    Nilai kesiapan teknologi yang diperlukan
+                    untuk menerapkan alternatif.
+                </p>
+
+                <div class="form-group">
+
+                    <label for="technologyReadiness">
+                        Tingkat kesiapan teknologi
+                    </label>
+
+                    <select
+                        id="technologyReadiness"
+                        name="technologyReadiness"
+                        required
+                    >
+
+                        <option value="">
+                            Pilih penilaian
+                        </option>
+
+                        <option value="1">
+                            1 — Sangat Tidak Siap
+                        </option>
+
+                        <option value="2">
+                            2 — Tidak Siap
+                        </option>
+
+                        <option value="3">
+                            3 — Cukup Siap
+                        </option>
+
+                        <option value="4">
+                            4 — Siap
+                        </option>
+
+                        <option value="5">
+                            5 — Sangat Siap
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 03 — ECONOMIC
+            ================================================== -->
+
+            <section class="panel">
+
+                <span class="section-label">
+                    03 • ECONOMIC
+                </span>
+
+                <h2>
+                    Potensi Ekonomi
+                </h2>
+
+                <p class="muted">
+                    Evaluasi potensi nilai ekonomi dan
+                    efisiensi biaya yang dihasilkan.
+                </p>
+
+                <div class="form-group">
+
+                    <label for="economicPotential">
+                        Potensi ekonomi
+                    </label>
+
+                    <select
+                        id="economicPotential"
+                        name="economicPotential"
+                        required
+                    >
+
+                        <option value="">
+                            Pilih penilaian
+                        </option>
+
+                        <option value="1">
+                            1 — Sangat Rendah
+                        </option>
+
+                        <option value="2">
+                            2 — Rendah
+                        </option>
+
+                        <option value="3">
+                            3 — Sedang
+                        </option>
+
+                        <option value="4">
+                            4 — Tinggi
+                        </option>
+
+                        <option value="5">
+                            5 — Sangat Tinggi
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 04 — ENVIRONMENT
+            ================================================== -->
+
+            <section class="panel">
+
+                <span class="section-label">
+                    04 • ENVIRONMENT
+                </span>
+
+                <h2>
+                    Dampak Lingkungan
+                </h2>
+
+                <p class="muted">
+                    Evaluasi kontribusi alternatif terhadap
+                    pengurangan limbah dan dampak lingkungan.
+                </p>
+
+                <div class="form-group">
+
+                    <label for="environmentalImpact">
+                        Dampak positif terhadap lingkungan
+                    </label>
+
+                    <select
+                        id="environmentalImpact"
+                        name="environmentalImpact"
+                        required
+                    >
+
+                        <option value="">
+                            Pilih penilaian
+                        </option>
+
+                        <option value="1">
+                            1 — Sangat Rendah
+                        </option>
+
+                        <option value="2">
+                            2 — Rendah
+                        </option>
+
+                        <option value="3">
+                            3 — Sedang
+                        </option>
+
+                        <option value="4">
+                            4 — Tinggi
+                        </option>
+
+                        <option value="5">
+                            5 — Sangat Tinggi
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 05 — CIRCULARITY
+            ================================================== -->
+
+            <section class="panel">
+
+                <span class="section-label">
+                    05 • CIRCULARITY
+                </span>
+
+                <h2>
+                    Potensi Ekonomi Sirkular
+                </h2>
+
+                <p class="muted">
+                    Seberapa kuat alternatif mengembalikan
+                    limbah menjadi sumber daya bernilai.
+                </p>
+
+                <div class="form-group">
+
+                    <label for="circularity">
+                        Tingkat penerapan circular economy
+                    </label>
+
+                    <select
+                        id="circularity"
+                        name="circularity"
+                        required
+                    >
+
+                        <option value="">
+                            Pilih penilaian
+                        </option>
+
+                        <option value="1">
+                            1 — Sangat Rendah
+                        </option>
+
+                        <option value="2">
+                            2 — Rendah
+                        </option>
+
+                        <option value="3">
+                            3 — Sedang
+                        </option>
+
+                        <option value="4">
+                            4 — Tinggi
+                        </option>
+
+                        <option value="5">
+                            5 — Sangat Tinggi
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 06 — FEEDBACK
+            ================================================== -->
+
+            <section class="panel">
+
+                <span class="section-label">
+                    06 • FEEDBACK
+                </span>
+
+                <h2>
+                    Catatan Evaluasi
+                </h2>
+
+                <p class="muted">
+                    Tambahkan kendala, kebutuhan, atau
+                    saran pengembangan alternatif.
+                </p>
+
+                <div class="form-group">
+
+                    <label for="notes">
+                        Catatan
+                    </label>
+
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        rows="6"
+                        placeholder="Tuliskan catatan evaluasi..."
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SUBMIT
+            ================================================== -->
+
+            <div class="form-actions">
+
+                <a
+                    href="result.html"
+                    class="button button-secondary"
+                >
+                    ← Kembali
+                </a>
+
+                <button
+                    type="submit"
+                    class="button button-primary"
+                >
+                    Selesaikan Evaluasi
+                    <span class="button-arrow">
+                        →
+                    </span>
+                </button>
+
+            </div>
+
+        </form>
+
+
+
+        <!-- =================================================
+             FINAL RESULT
+        ================================================== -->
+
+        <section
+            id="evaluationResult"
+            class="panel"
+            style="display:none; text-align:center;"
+        >
+
+            <div
+                style="
+                    width:58px;
+                    height:58px;
+                    margin:0 auto 18px;
+                    display:grid;
+                    place-items:center;
+                    border-radius:50%;
+                    background:var(--blue-light);
+                    color:var(--blue);
+                    font-size:24px;
+                    font-weight:800;
+                "
+            >
+                ✓
+            </div>
+
+            <span class="section-label">
+                EVALUATION COMPLETED
+            </span>
+
+            <h2>
+                Evaluasi Berhasil Disimpan
+            </h2>
+
+            <p
+                id="finalMessage"
+                class="muted"
+                style="
+                    max-width:600px;
+                    margin:0 auto 25px;
+                "
+            >
+                -
+            </p>
+
+            <div class="stat"
+                style="
+                    max-width:300px;
+                    margin:25px auto;
+                    background:var(--blue-light);
+                "
+            >
+
+                <span>
+                    Evaluation Score
+                </span>
+
+                <b
+                    id="finalScore"
+                    style="
+                        color:var(--blue);
+                        font-size:42px;
+                    "
+                >
+                    -
+                </b>
+
+                <small class="muted">
+                    /100
+                </small>
+
+            </div>
+
+
+            <div class="form-actions"
+                style="
+                    justify-content:center;
+                "
+            >
+
+                <a
+                    href="result.html"
+                    class="button button-secondary"
+                >
+                    ← Lihat Hasil
+                </a>
+
+                <a
+                    href="analysis.html"
+                    class="button button-primary"
+                >
+                    Analisis Baru
+                    <span class="button-arrow">
+                        →
+                    </span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         SCRIPT
+    ====================================================== -->
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+
+
+    <script>
+
+        /* =================================================
+           LOAD RECOMMENDATION
+        ================================================= */
+
+        function loadRecommendation() {
+
+            if (
+                typeof getLatestResult !== "function"
+            ) {
+
+                document.getElementById(
+                    "evaluationWinner"
+                ).textContent =
+                    "Data tidak tersedia";
+
+                return;
+
+            }
+
+
+            const result =
+                getLatestResult();
+
+
+            if (
+                !result ||
+                !result.recommendation
+            ) {
+
+                document.getElementById(
+                    "evaluationWinner"
+                ).textContent =
+                    "Belum ada rekomendasi";
+
+                document.getElementById(
+                    "evaluationScore"
+                ).textContent =
+                    "-";
+
+                return;
+
+            }
+
+
+            document.getElementById(
+                "evaluationWinner"
+            ).textContent =
+                result.recommendation.alternativeName;
+
+
+            document.getElementById(
+                "evaluationScore"
+            ).textContent =
+                result.recommendation.score;
+
+        }
+
+
+
+        /* =================================================
+           CALCULATE SCORE
+        ================================================= */
+
+        function calculateEvaluationScore(data) {
+
+            const values = [
+
+                Number(data.feasibility),
+
+                Number(data.technologyReadiness),
+
+                Number(data.economicPotential),
+
+                Number(data.environmentalImpact),
+
+                Number(data.circularity)
+
+            ];
+
+
+            const total =
+                values.reduce(
+                    (sum, value) =>
+                        sum + value,
+                    0
+                );
+
+
+            return Math.round(
+                (total / 25) * 100
+            );
+
+        }
+
+
+
+        /* =================================================
+           EVALUATION LEVEL
+        ================================================= */
+
+        function getEvaluationLevel(score) {
+
+            if (score >= 85) {
+
+                return {
+
+                    title:
+                        "Sangat Siap Diterapkan",
+
+                    message:
+                        "Alternatif menunjukkan tingkat kesiapan implementasi yang sangat baik."
+
+                };
+
+            }
+
+
+            if (score >= 70) {
+
+                return {
+
+                    title:
+                        "Siap dengan Penyesuaian",
+
+                    message:
+                        "Alternatif cukup siap diterapkan, tetapi masih membutuhkan beberapa penyesuaian."
+
+                };
+
+            }
+
+
+            if (score >= 55) {
+
+                return {
+
+                    title:
+                        "Membutuhkan Pengembangan",
+
+                    message:
+                        "Alternatif memiliki potensi, tetapi diperlukan pengembangan sebelum implementasi penuh."
+
+                };
+
+            }
+
+
+            return {
+
+                title:
+                    "Belum Siap",
+
+                message:
+                    "Alternatif memerlukan evaluasi teknis dan ekonomi lebih lanjut."
+
+            };
+
+        }
+
+
+
+        /* =================================================
+           SUBMIT
+        ================================================= */
+
+        document.getElementById(
+            "evaluationForm"
+        ).addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const formData =
+                    new FormData(this);
+
+
+                const data =
+                    Object.fromEntries(
+                        formData.entries()
+                    );
+
+
+                const score =
+                    calculateEvaluationScore(
+                        data
+                    );
+
+
+                const level =
+                    getEvaluationLevel(
+                        score
+                    );
+
+
+                /*
+                 * Simpan evaluasi jika
+                 * fungsi tersedia.
+                 */
+
+                if (
+                    typeof saveEvaluation === "function"
+                ) {
+
+                    saveEvaluation({
+
+                        ...data,
+
+                        score,
+
+                        level:
+                            level.title
+
+                    });
+
+                } else {
+
+                    /*
+                     * Fallback jika fungsi
+                     * belum tersedia.
+                     */
+
+                    localStorage.setItem(
+                        "sirasenta_evaluation",
+                        JSON.stringify({
+
+                            ...data,
+
+                            score,
+
+                            level:
+                                level.title,
+
+                            timestamp:
+                                new Date().toISOString()
+
+                        })
+                    );
+
+                }
+
+
+                /*
+                 * Sembunyikan form.
+                 */
+
+                this.style.display =
+                    "none";
+
+
+                /*
+                 * Tampilkan hasil.
+                 */
+
+                const result =
+                    document.getElementById(
+                        "evaluationResult"
+                    );
+
+
+                result.style.display =
+                    "block";
+
+
+                document.getElementById(
+                    "finalScore"
+                ).textContent =
+                    score;
+
+
+                document.getElementById(
+                    "finalMessage"
+                ).textContent =
+                    `${level.title}. ${level.message}`;
+
+
+                /*
+                 * Scroll ke hasil.
+                 */
+
+                result.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }
+        );
+
+
+
+        /* =================================================
+           INITIALIZE
+        ================================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            loadRecommendation
+        );
+
+    </script>
+
+</body>
+
+</html>
